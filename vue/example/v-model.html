@@ -1,0 +1,74 @@
+<!--
+ * @Author: xiuxiu
+ * @Date: 2021-11-21 20:53:38
+ * @LastEditTime: 2021-11-21 21:08:47
+ * @FilePath: \code\vue\example\v-model.html
+-->
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-model</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+
+<body>
+    <h1>HelloWorld</h1>
+    <hr>
+    <div id="app">
+        <p>原始文本信息：{{message}}</p>
+        <h3>文本框</h3>
+        <p>v-model:<input type="text" v-model='message'></p>
+        <p>
+            v-model.lazy:<input type="text" v-model.lazy='message'>
+        </p>
+        <p>
+            v-model.number:<input type="text" v-model.number='message'>
+        </p>
+        <p>
+            v-model.trim:<input type="text" v-model.trim='message'>
+        </p>
+        <hr>
+        <h3>文本域</h3>
+        <textarea cols="30" rows="10" v-model='message'></textarea>
+        <h3>多选框绑定一个值</h3>
+        <input type="checkbox" id='isTrue' v-model='isTrue'>
+        <label for="isTrue">{{isTrue}}</label>
+        <hr>
+        <h3>多选框绑定数组</h3>
+        <p>
+            <input type="checkbox" id='xiu1' value="xiu1" v-model='web_names'>
+            <label for="isTrue">xiu1</label>
+            <input type="checkbox" id='xiu2' value="xiu2" v-model='web_names'>
+            <label for="isTrue">xiu2</label>
+            <input type="checkbox" id='xiu3' value="xiu3" v-model='web_names'>
+            <label for="isTrue">xiu3</label>
+        </p>
+        <p>{{web_names}}</p>
+        <!-- <p v-for="names in web_names">{{names}}</p> -->
+        <hr>
+        <h3>单选框绑定</h3>
+        <input type="radio" id="one" value="男" v-model='sex'>
+        <label for="one">男</label>
+        <input type="radio" id="two" value="女" v-model='sex'>
+        <label for="two">女</label>
+        <p>你选择的性别是：{{sex}}</p>
+    </div>
+
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello World ! ',
+                isTrue: true,
+                web_names: [],
+                sex: '男'
+            }
+        })
+    </script>
+</body>
+
+</html>

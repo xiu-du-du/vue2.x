@@ -1,0 +1,44 @@
+<!--
+ * @Author: xiuxiu
+ * @Date: 2021-11-21 21:33:17
+ * @LastEditTime: 2021-11-21 21:39:47
+ * @FilePath: \code\vue\example\others.html
+-->
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-pre & v-cloak & c-once 实例</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+
+<body>
+    <h1>v-pre & v-cloak & c-once 实例</h1>
+    <hr>
+    <div id="app">
+        <h3>v-pre 不渲染：</h3>
+        <div v-pre>{{message}}</div>
+        <hr>
+        <p>v-cloak</p>
+        <div v-cloak>渲染完成后，才显示！</div>
+        <hr>
+        <div v-once>v-once 只渲染一次：{{message}}</div>
+        <div><input type="text" v-model='message'></div>
+        <div>{{message}}</div>
+    </div>
+
+    <script>
+        Vue.config.productionTip = false
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                message: 'Hello World ! '
+            }
+        })
+    </script>
+</body>
+
+</html>

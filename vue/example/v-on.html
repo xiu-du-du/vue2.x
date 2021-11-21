@@ -1,0 +1,52 @@
+<!--
+ * @Author: xiuxiu
+ * @Date: 2021-11-21 20:44:33
+ * @LastEditTime: 2021-11-21 20:51:19
+ * @FilePath: \code\vue\example\v-on.html
+-->
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-on 实例</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+
+<body>
+    <h1>v-on 实例</h1>
+    <hr>
+    <div id="app">
+        {{fenshu}}
+        <p>
+            <button @click='jiafen'>加分</button>
+            <button @click='jianfen'>减分</button>
+            <hr>
+            <input type="text" @keyup.enter='onEnter' v-model='fenshu2'>
+        </p>
+    </div>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                fenshu: 0,
+                fenshu2: 1
+            },
+            methods: {
+                jiafen() {
+                    this.fenshu += 1
+                },
+                jianfen() {
+                    this.fenshu -= 1
+                },
+                onEnter() {
+                    this.fenshu = (this.fenshu - 0) + (this.fenshu2 - 0)
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>

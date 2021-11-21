@@ -1,0 +1,72 @@
+<!--
+ * @Author: xiuxiu
+ * @Date: 2021-11-21 21:12:28
+ * @LastEditTime: 2021-11-21 21:30:29
+ * @FilePath: \code\vue\example\v-bind.html
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v-bind 实例</title>
+    <script src="../assets/js/vue.js"></script>
+</head>
+
+<body>
+    <h1>v-bind 实例</h1>
+    <hr>
+    <div id="app">
+        <p>
+            <img :src="imgSrc" alt="" width="200px">
+        </p>
+        <p>
+            <a :href="webUrl" target="_blank">xiu</a>
+        </p>
+        <hr>
+        <div :class="className">1、绑定Class</div>
+        <div :class="{classA:isOk}">2、绑定Class中的判断</div>
+        <div :class="[classA,classB]">2、绑定Class中的判断</div>
+        <div :class="isOk?classA:classB">3、绑定Class中的三元运算符</div>
+        <hr>
+        <div>
+            <input type="checkbox" id="isOk" v-model='isOk'>
+            <label for="isOk">isOk={{isOk}}</label>
+        </div>
+        <hr>
+        <div :style="{color:red,fontSize:font}">5、绑定style</div>
+        <div :style="styleObject">6、对象绑定style</div>
+    </div>
+    <style>
+        .classA {
+            color: red;
+        }
+        
+        .classB {
+            color: blue;
+        }
+    </style>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                imgSrc: 'http://dingyue.ws.126.net/2019/1225/d26c31fdj00q32ahb000ac0006o006om.jpg',
+                webUrl: 'http://akk8.xyz',
+                className: 'classB',
+                isOk: false,
+                classA: 'classA',
+                classB: 'classB',
+                red: 'red',
+                font: '20px',
+                styleObject: {
+                    color: 'green',
+                    fontSize: '24px'
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
