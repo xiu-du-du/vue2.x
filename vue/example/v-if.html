@@ -1,0 +1,47 @@
+<!--
+ * @Author: xiuxiu
+ * @Date: 2021-11-21 19:45:14
+ * @LastEditTime: 2021-11-21 19:50:44
+ * @FilePath: \code\vue\example\v-if&v-show&v-else.html
+-->
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../assets/js/vue.js"></script>
+    <title>v-if & v-show & v-else</title>
+</head>
+
+<body>
+    <h1>v-if 判断是否加载</h1>
+    <hr>
+    <div id="app">
+        <div v-show='isLogin'>Hello:jack</div>
+
+        <div v-if='isLogin'>Hello:jack</div>
+        <div v-else>请登录后操作</div>
+    </div>
+    <script>
+        //
+
+        /* 
+            v-if 和v-show的区别：
+                v-if： 判断是否加载，可以减轻服务器的压力，在需要时加载。
+                v-show：调整css dispaly属性，可以使客户端操作更加流畅。
+        */
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                isLogin: false
+            }
+        })
+    </script>
+</body>
+
+</html>
+</body>
+
+</html>

@@ -1,0 +1,76 @@
+<!--
+ * @Author: xiuxiu
+ * @Date: 2021-11-21 19:51:41
+ * @LastEditTime: 2021-11-21 20:17:57
+ * @FilePath: \code\vue\example\v-for.html
+-->
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="../assets/js/vue.js"></script>
+    <title>v-for 指令：解决模板循环问题</title>
+</head>
+
+<body>
+    <div id="app">
+        <ul>
+            <!-- 
+                需要哪个标签循环，v-for就写在那个上边。
+             -->
+            <li v-for='item in items'>
+                {{item}}
+            </li>
+            <li v-for='student in students'>
+                {{student.name}} - {{student.age}}
+            </li>
+        </ul>
+    </div>
+    <script>
+        const vm = new Vue({
+            el: '#app',
+            data: {
+                items: [20, 23, 18, 65, 32, 19, 5, 56, 41],
+                students: [{
+                    name: 'XiaoMing',
+                    age: 18
+                }, {
+                    name: 'XiaoLi',
+                    age: 20
+                }, {
+                    name: 'XiaoWang',
+                    age: 19
+                }, {
+                    name: 'XiaoHong',
+                    age: 22
+                }, ]
+            },
+            computed: {
+                sortItems() {
+                    return this.items.sort(function(a, b) {
+                        return a - b
+                    })
+                },
+                sortStrudent() {
+                    function sortByKey(array, key) {
+                        return array.sort(function(a, b) {
+                            let x = a[key]
+                            let y = b[key]
+                            return ((x < y) ? -1 : ((x > y) ? 1 : 0))
+                        })
+                    }
+                    return sortByKey(this.students, 'age')
+                }
+            },
+
+        })
+    </script>
+</body>
+
+</html>
+</body>
+
+</html>
